@@ -38,6 +38,7 @@ import 'package:flutter_sixvalley_ecommerce/features/splash/screens/splash_scree
 import 'package:flutter_sixvalley_ecommerce/features/support/controllers/support_ticket_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/wallet/controllers/wallet_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/wishlist/controllers/wishlist_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/firebase_options.dart';
 import 'package:flutter_sixvalley_ecommerce/helper/route_healper.dart';
 import 'package:flutter_sixvalley_ecommerce/localization/controllers/localization_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/push_notification/models/notification_body.dart';
@@ -77,13 +78,7 @@ Future<void> main() async {
       try{
         /// todo you need to configure that firebase Option with your own firebase to run your app
         await Firebase.initializeApp(
-          name: 'your_project_name',
-          options: const FirebaseOptions(
-            apiKey: "current_key here",
-            projectId: "project_id here",
-            messagingSenderId: "project_number here",
-            appId: "mobilesdk_app_id here"
-          )
+          options: DefaultFirebaseOptions.currentPlatform
         );
       } finally {
         await Firebase.initializeApp();
